@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.catfilm.springboot.dao.mapper.FilmFieldTMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.catfilm.springboot.dao.entity.FilmFieldT">
+        <id column="UUID" property="uuid" />
+        <result column="cinema_id" property="cinemaId" />
+        <result column="film_id" property="filmId" />
+        <result column="begin_time" property="beginTime" />
+        <result column="end_time" property="endTime" />
+        <result column="hall_id" property="hallId" />
+        <result column="hall_name" property="hallName" />
+        <result column="price" property="price" />
+    </resultMap>
+
+    <resultMap id="fieldInfoList" type="com.catfilm.springboot.controller.cinema.vo.CinemaFilmInfoVo">
+        <result column="film_id" property="filmId"></result>
+        <result column="film_name" property="filmName"></result>
+        <result column="film_length" property="filmLength"></result>
+        <result column="film_language" property="filmType"></result>
+        <result column="film_cats" property="filmCats"></result>
+        <result column="actors" property="actors"></result>
+        <result column="img_address" property="imgAddress"></result>
+        <collection property="filmFields" ofType="com.catfilm.springboot.controller.cinema.vo.CinemaFilmFieldVO">
+            <result column="UUID" property="fieldId"></result>
+            <result column="begin_time" property="beginTime"></result>
+            <result column="end_time" property="endTime"></result>
+            <result column="film_language" property="language"></result>
+            <result column="hall_name" property="hallName"></result>
+            <result column="price" property="price"></result>
+        </collection>
+    </resultMap>
+
+    <select id="descFieldInfo" parameterType="string" resultMap="fieldInfoList">
+        SELECT
+        film.film_id,
+        film.film_name,
+        film.film_length,
+        film.film_language,
+        film.film_cats,
+        film.actors,
+        film.img_address,
+        fe.UUID,
+        fe.begin_time,
+        fe.end_time,
+        film.film_language,
+        fe.hall_name,
+        fe.price
+        FROM
+        film_field_t fe LEFT JOIN film_hall_film_info_t film
+        ON
+        film.film_id = fe.film_id
+        <where>
+            fe.cinema_id=#{cinemaId}
+        </where>
+    </select>
+
+    <select id="descFilmInfo" parameterType="string" resultType="com.catfilm.springboot.controller.cinema.vo.CinemaFilmOraVo">
+        SELECT
+            film.film_id,
+            film.film_name,
+            film.film_length,
+            film.film_language filmType,
+            film.film_cats,
+            film.actors,
+            film.img_address
+        FROM
+            film_field_t fe LEFT JOIN film_hall_film_info_t film
+        ON
+            film.film_id = fe.film_id
+        <where>
+            fe.UUId = #{fieldId}
+        </where>
+    </select>
+
+    <select id="descHallInfo" parameterType="string" resultType="com.catfilm.springboot.controller.cinema.vo.CinemaHallVO">
+        SELECT
+            fe.UUID hallFieldId,
+            fe.hall_name hallName,
+            fe.price,
+            hall.seat_address seatFile
+        FROM
+            film_field_t fe LEFT JOIN film_hall_dict_t hall
+        ON
+            fe.hall_id = hall.UUId
+        WHERE fe.UUID=#{fieldId}
+    </select>
+</mapper>
