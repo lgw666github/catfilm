@@ -1,0 +1,42 @@
+2020-05-12 01:00:27.027  INFO 720 --- [restartedMain] c.catfilm.springboot.CatfilmApplication  : Starting CatfilmApplication on LAPTOP-JL37MULN with PID 720 (E:\workspace-idea\catfilm\target\classes started by 86175 in E:\workspace-idea\catfilm)
+2020-05-12 01:00:27.034 DEBUG 720 --- [restartedMain] c.catfilm.springboot.CatfilmApplication  : Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2020-05-12 01:00:27.035  INFO 720 --- [restartedMain] c.catfilm.springboot.CatfilmApplication  : No active profile set, falling back to default profiles: default
+2020-05-12 01:00:27.092  INFO 720 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-05-12 01:00:27.092  INFO 720 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-05-12 01:00:29.756  INFO 720 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$77100335] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-12 01:00:30.561  INFO 720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-05-12 01:00:30.587  INFO 720 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-12 01:00:30.587  INFO 720 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-05-12 01:00:30.599  INFO 720 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\Java\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NGX;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;D:\Program Files (x86)\Git\cmd;D:\Program Files\TortoiseGit\bin;E:\software\mysql-5.7.25-winx64\bin\bin;F:\deploy_project\catFilm\node_v10.16.0;E:\software\maven-3.6.0\bin;D:\Program Files\Java\jdk1.8\bin;D:\Program Files\Java\jre1.8\bin;C:\Users\86175\AppData\Local\Microsoft\WindowsApps;;.]
+2020-05-12 01:00:30.736  INFO 720 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-12 01:00:30.736  INFO 720 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3643 ms
+2020-05-12 01:00:31.337  INFO 720 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-05-12 01:00:31.844  WARN 720 --- [restartedMain] c.b.m.core.toolkit.TableInfoHelper       : Warn: Could not find @TableId in Class: com.catfilm.springboot.dao.entity.FilmOrderT.
+2020-05-12 01:00:32.009 DEBUG 720 --- [restartedMain] c.c.s.controller.filter.AuthFilter       : Filter 'jwtAuthenticationTokenFilter' configured for use
+2020-05-12 01:00:32.146  INFO 720 --- [restartedMain] c.c.s.zhifubao.trade.config.Configs      : 配置文件名: zfbinfo.properties
+2020-05-12 01:00:32.147  INFO 720 --- [restartedMain] c.c.s.zhifubao.trade.config.Configs      : Configs{支付宝openapi网关: https://openapi.alipaydev.com/gateway.do
+, 支付宝mcloudapi网关域名: http://mcloudmonitor.com/gateway.do
+, pid: 2088102180232522
+, appid: 2016101900720687
+, 商户RSA私钥: MIIEvQ******ooJjU=
+, 商户RSA公钥: MIIBIj******IDAQAB
+, 支付宝RSA公钥: MIIBIj******IDAQAB
+, 签名类型: RSA2
+, 查询重试次数: 5
+, 查询间隔(毫秒): 5000
+, 撤销尝试次数: 3
+, 撤销重试间隔(毫秒): 2000
+, 交易保障调度延迟(秒): 5
+, 交易保障调度间隔(秒): 900
+}
+2020-05-12 01:00:32.642  INFO 720 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-05-12 01:00:32.780  INFO 720 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-12 01:00:32.806  INFO 720 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-05-12 01:00:33.165  INFO 720 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-05-12 01:00:33.191  INFO 720 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-05-12 01:00:33.222  INFO 720 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-05-12 01:00:33.531  INFO 720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-12 01:00:33.535  INFO 720 --- [restartedMain] c.catfilm.springboot.CatfilmApplication  : Started CatfilmApplication in 7.023 seconds (JVM running for 7.651)
+2020-05-12 01:03:49.780  INFO 720 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-12 01:03:49.781  INFO 720 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-12 01:03:49.795  INFO 720 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms

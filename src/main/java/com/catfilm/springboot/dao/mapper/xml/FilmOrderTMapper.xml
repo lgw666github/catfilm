@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.catfilm.springboot.dao.mapper.FilmOrderTMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.catfilm.springboot.dao.entity.FilmOrderT">
+        <result column="UUID" property="uuid" />
+        <result column="cinema_id" property="cinemaId" />
+        <result column="field_id" property="fieldId" />
+        <result column="film_id" property="filmId" />
+        <result column="seats_ids" property="seatsIds" />
+        <result column="seats_name" property="seatsName" />
+        <result column="film_price" property="filmPrice" />
+        <result column="order_price" property="orderPrice" />
+        <result column="order_time" property="orderTime" />
+        <result column="order_user" property="orderUser" />
+        <result column="order_status" property="orderStatus" />
+    </resultMap>
+
+    <select id="getOrderDetailByOrderId" parameterType="string" resultType="com.catfilm.springboot.controller.order.vo.response.OrderDetailVO">
+        SELECT
+            o.`UUID` orderId,
+            h.`film_name` filmName,
+            CONCAT(DATE_FORMAT(o.`order_time`,'%y年%m月%d日'),' ',f.`begin_time`) fieldTime,
+            c.`cinema_name` cinemaName,
+            o.`seats_name` seatsName,
+            o.`order_price` orderPrice,
+            CASE
+                WHEN o.`order_status`=0 THEN '待支付'
+                WHEN o.`order_status`=1 THEN '已支付'
+                WHEN o.`order_status`=2 THEN '已关闭'
+                ELSE  '已关闭'
+            END orderStatus
+        FROM film_order_t o,film_hall_film_info_t h,film_cinema_t c,film_field_t f
+        WHERE o.`cinema_id`=c.`UUID`
+            AND o.`field_id`=f.`UUID`
+            AND o.`film_id`=h.`film_id`
+            AND o.`UUID`=#{orderId}
+    </select>
+
+    <select id="getOrderDetailByUserId" parameterType="string" resultType="com.catfilm.springboot.controller.order.vo.response.OrderDetailVO">
+        SELECT
+            o.`UUID` orderId,
+            h.`film_name` filmName,
+            CONCAT(DATE_FORMAT(o.`order_time`,'%y年%m月%d日'),' ',f.`begin_time`) fieldTime,
+            c.`cinema_name` cinemaName,
+            o.`seats_name` seatsName,
+            o.`order_price` orderPrice,
+            CASE
+            WHEN o.`order_status`=0 THEN '待支付'
+            WHEN o.`order_status`=1 THEN '已支付'
+            WHEN o.`order_status`=2 THEN '已关闭'
+            ELSE  '已关闭'
+            END orderStatus
+        FROM film_order_t o,film_hall_film_info_t h,film_cinema_t c,film_field_t f
+        WHERE o.`cinema_id`=c.`UUID`
+            AND o.`field_id`=f.`UUID`
+            AND o.`film_id`=h.`film_id`
+            AND o.`order_user`=#{userId}
+
+    </select>
+
+    <select id="getFilmPriceByFieldId" parameterType="string" resultType="com.catfilm.springboot.service.order.BO.FilmPriceBO">
+        SELECT
+        cinema_id cinemaId,
+        price filmPrice
+        FROM film_field_t
+        WHERE UUID=#{fieldId}
+    </select>
+
+    <select id="showSoldSeats" parameterType="string" resultType="string">
+        SELECT GROUP_CONCAT(seats_ids) FROM film_order_t WHERE field_id=#{fieldId}
+    </select>
+
+</mapper>
