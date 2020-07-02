@@ -19,7 +19,7 @@
 		<springboot.version>2.0.0</springboot.version>
 		<mybatis.plus.version>3.1.0</mybatis.plus.version>
 		<druid.version>1.1.10</druid.version>
-		<mysql.connect.version>8.0.13</mysql.connect.version>
+		<mysql.connect.version>8.0.16</mysql.connect.version>
 		<mybatis.plus.generator>3.1.0</mybatis.plus.generator>
 		<beetl.version>2.9.8</beetl.version>
 		<log4j.version>1.2.17</log4j.version>
